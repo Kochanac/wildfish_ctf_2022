@@ -13,7 +13,7 @@ import string, random, hashlib
 
 letters_available = string.ascii_letters + "{}6"
 
-flag = "PbI6bI{sfdajkafdasjkfdasj_dfsafdsa_sda}"
+flag = "PbI6bI{hi_katya}"
 
 
 
@@ -28,7 +28,7 @@ fmt = """
 """.strip()
 fmt_0 = """
 {randstr}: &{hash}
-  letter: {let}
+  letter: "{let}"
 """.strip()
 
 def genfmt(ind: int, let: str, prev: str):
