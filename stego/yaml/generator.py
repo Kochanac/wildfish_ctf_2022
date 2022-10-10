@@ -13,7 +13,7 @@ import string, random, hashlib
 
 letters_available = string.ascii_letters + "{}6"
 
-flag = "PbI6bI{hi_katya}"
+flag = "PbI6bI{n0t_4_f1sh_but_s3lf_3at1ng_y4m1}"
 
 
 
