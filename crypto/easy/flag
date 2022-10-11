@@ -1,0 +1,4 @@
+flag = "PbI6bI{h3ll0_t0_7h3_c7f}"
+
+# https://gchq.github.io/CyberChef/#recipe=To_Base64('A-Za-z0-9%2B/%3D')To_Hex('Space',0)To_Decimal('Space',false)To_Base32('A-Z2-7%3D')&input=UGJJNmJJe2gzbGwwX3QwXzdoM19jN2ZfIX0
+
