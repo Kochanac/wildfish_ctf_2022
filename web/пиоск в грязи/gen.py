@@ -5,7 +5,9 @@ def rs(length):
     
 flag = 'PbI6bI{в_грязи_найдет_тот_кто_будет_искать}'
 
-start = '''from flask import Flask
+start = '''import os
+from flask import Flask
+from flask import Response
 
 app = Flask(__name__)
 '''
@@ -13,19 +15,34 @@ app = Flask(__name__)
 handler_format = '''
 @app.route("/{}")
 def {}():
-    return "{}"
+    resp = Response("{}")
+    resp.headers['number'] = "{}"
+    return resp
 '''
 
-handlers = open('dicc.txt').read().split('\n')
+handlers = open('gen_fish.txt').read().split('\n')
 
-pairs  = list(zip(handlers, [f'{x} {flag.find(x)}' for x in flag] + [''] * (len(handlers) - len(flag))))
+pairs  = list(
+    zip(
+        handlers,
+         [
+            (x, str(flag.find(x))) for x in flag
+        ] 
+        + [('', '')] * (len(handlers) - len(flag))
+    )
+)
+
 random.shuffle(pairs)
 print(pairs)
 
 file = open('task.py', 'a')
 output = start
 for f, s in pairs:
-    output += '\n' + handler_format.format(f, rs(8), s) + '\n'
+    output += '\n' + handler_format.format(f, rs(8), s[0], s[1]) + '\n'
+
+output += '\n' + '''if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=os.getenv('PORT'))
+'''
 
 file.write(output)
 file.close()
