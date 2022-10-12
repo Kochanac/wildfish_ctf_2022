@@ -1,12 +1,14 @@
 import requests
 
 fs = open('fishes.txt', 'r').read().split('\n')
-addr = 'http://localhost:5000/%s'
+addr = 'http://gryaz.fish.lyceumctf.ru/%s'
 ans = []
 
-for f in range(len(fs)):
+
+from tqdm import tqdm
+for f in tqdm(range(len(fs))):
 	r = requests.get(addr % fs[f])
-	print(f'requesting {addr % fs[f]} {f}/{len(fs)}')
+	#print(f'requesting {addr % fs[f]} {f}/{len(fs)}')
 	if len(r.text) == 1:
 		print('got %s' % r.text, end='\n')
 		ans.append((r.text, r.headers['number']))

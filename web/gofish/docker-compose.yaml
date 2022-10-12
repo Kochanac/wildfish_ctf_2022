@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  gofish:
+    build: .
+    restart: always
+
+  nginx:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./front:/front
+    ports:
+      - "22004:8080"
+    restart: always
