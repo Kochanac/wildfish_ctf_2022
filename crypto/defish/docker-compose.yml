@@ -4,5 +4,5 @@ services:
   fish:
     build: .
     ports:
-      - "80:8080"
+      - "22001:8080"
     restart: always

@@ -23,7 +23,7 @@ def randstr(ln: int) -> str:
 fmt = """
 {randstr}: &{hash}
   letter: "{let}"
-  prev:
+  p:
     <<: *{prev_hash}
 """.strip()
 fmt_0 = """
@@ -60,7 +60,7 @@ for i in range(len(flag)):
 		letters.append(genfmt(flag[i][0], flag[i][1], gethash(flag[i-1][0], flag[i-1][1])))
 
 
-for x in range(20):
+for x in range(50):
 	flagref = random.choice(flag)
 	letters.append(
 		genfmt(random.randint(0, 3), random.choice(letters_available), gethash(flagref[0], flagref[1]))

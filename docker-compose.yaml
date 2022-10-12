@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  defish:
+    build: crypto/defish
+    ports:
+      - 22001:8080
+    restart: always
+
+  gryaz:
+    build: web/пиоск в грязи
+    ports: 
+      - 22002:5000
+    environment: 
+      PORT: 5000
+      FLASK_DEBUG: 1
+
+  officework:
+    build: forensics/officework
+    ports:
+      - 22003:5000
+  
