@@ -2,7 +2,6 @@ package sharded_map
 
 import (
 	"fmt"
-	"sort"
 )
 
 type UserMap struct {
@@ -13,6 +12,16 @@ func NewUserMap() *UserMap {
 	return &UserMap{}
 }
 
+func sortSlice(ps []Pair) {
+	for i := 0; i < len(ps); i++ {
+		for j := 0; j < len(ps); j++ {
+			if i > j && ps[i].Key < ps[j].Key {
+				ps[i], ps[j] = ps[j], ps[i]
+			}
+		}
+	}
+}
+
 func (m *UserMap) Add(p Pair) error {
 	for _, op := range m.pairs {
 		if op.Key == p.Key {
@@ -20,7 +29,7 @@ func (m *UserMap) Add(p Pair) error {
 		}
 	}
 	m.pairs = append(m.pairs, p)
-	sort.Slice(m.pairs, func(i, j int) bool { return m.pairs[i].Key < m.pairs[j].Key })
+	sortSlice(m.pairs)
 	return nil
 }
 
