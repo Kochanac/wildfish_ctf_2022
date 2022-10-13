@@ -1,33 +1,33 @@
 flag = """
-🐠🎣
-🐟🐡🎣
-♓🎣
-🐟🍣🐠🐡
-🐟🐡🎣
-♓🎣
-🐟♓🐠🐡🎣
-🐟🍣🐡🎣
-♓🐡🎣
-🐟🐠🐡🎣
-♓🎣
-🐟🍣♓🐠🎣
-🐟🎣
-🐡🎣
-🐟🍣♓🐡🎣
-🐟🍣♓🐠🎣
-🐟🍣🐠🐡
-🍣🐡🎣
-🐟🍣♓🐠🎣
-🍣🎣
-♓🐡🎣
-🐟🍣🐡🎣
-🐟🍣🎣
-🍣🐡🎣
-🐟🐠🎣
-🍣🐡🎣
-🐟🍣♓🐡🎣
-🍣🐠🐡🎣
-🍣♓🐠🐡🎣
+🐡🐬
+🍣🎣🐬
+🐟🐠🐬
+🍣♓🐡🎣
+🍣🎣🐬
+🐟🐠🐬
+🐟🍣🐠🐡🎣🐬
+🍣♓🎣🐬
+🐟🐠🎣🐬
+🐟🍣🐡🎣🐬
+🐠🐬
+🐟🍣♓🐠🐡🐬
+🐟🍣🐬
+🐟🎣🐬
+🍣♓🐠🎣🐬
+🐟🍣♓🐠🐡🐬
+🍣♓🐡🎣
+🐟♓🎣🐬
+🐟🍣♓🐠🐡🐬
+♓🐬
+🐟🐠🎣🐬
+🍣♓🎣🐬
+🍣♓🐬
+🐟♓🎣🐬
+🍣🐡🐬
+🐟♓🎣🐬
+🍣♓🐠🎣🐬
+♓🐡🎣🐬
+🐟♓🐠🐡🎣🐬
 """.strip().split("\n")
 
 print(flag)
@@ -38,7 +38,7 @@ from string import printable
 import re
 from requests import get
 
-printable = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!\"{}"
+printable = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!\"{}_"
 
 for ch in printable:
 	rsp = get(f"http://shrimp.fish.lyceumctf.ru/?eng_text={ch}").text
