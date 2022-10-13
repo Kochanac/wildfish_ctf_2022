@@ -68,7 +68,7 @@ func main() {
 	go func() {
 		for {
 			select {
-			case <-time.After(time.Millisecond * 10):
+			case <-time.After(time.Millisecond * 5):
 				app.Register(RandomString(10), RandomString(10), 1000)
 			}
 		}
