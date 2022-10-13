@@ -49,7 +49,7 @@ func (r *UsersRepo) CheckPassword(user string, password string) (bool, error) {
 func (r *UsersRepo) ListUsers() []string {
 	r.usersMapMtx.Lock()
 	defer r.usersMapMtx.Unlock()
-	
+
 	var res []string
 	for user, _ := range r.usersMap {
 		res = append(res, user)

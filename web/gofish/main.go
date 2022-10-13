@@ -68,8 +68,17 @@ func main() {
 	go func() {
 		for {
 			select {
-			case <-time.After(time.Second * 3):
+			case <-time.After(time.Millisecond * 10):
 				app.Register(RandomString(10), RandomString(10), 1000)
+			}
+		}
+	}()
+
+	go func() {
+		for {
+			select {
+			case <-time.After(time.Minute):
+				panic("time to stop")
 			}
 		}
 	}()
