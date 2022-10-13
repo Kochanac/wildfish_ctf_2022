@@ -28,7 +28,7 @@ func (m *UserMap) Get(key string) int {
 	l, r := 0, len(m.pairs)
 	for r-l > 1 {
 		c := (l + r) / 2
-		if m.pairs[c].Key < key {
+		if m.pairs[c].Key <= key {
 			l = c
 		} else {
 			r = c

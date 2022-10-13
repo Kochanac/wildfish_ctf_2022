@@ -18,6 +18,9 @@ func NewUsersRepo() *UsersRepo {
 }
 
 func (r *UsersRepo) Register(user string, password string) error {
+	r.usersMapMtx.Lock()
+	defer r.usersMapMtx.Unlock()
+
 	_, ok := r.usersMap[user]
 	if ok {
 		return fmt.Errorf("user already exists")
@@ -27,6 +30,9 @@ func (r *UsersRepo) Register(user string, password string) error {
 }
 
 func (r *UsersRepo) CheckPassword(user string, password string) (bool, error) {
+	r.usersMapMtx.Lock()
+	defer r.usersMapMtx.Unlock()
+
 	pass, ok := r.usersMap[user]
 
 	if !ok {
@@ -41,6 +47,9 @@ func (r *UsersRepo) CheckPassword(user string, password string) (bool, error) {
 }
 
 func (r *UsersRepo) ListUsers() []string {
+	r.usersMapMtx.Lock()
+	defer r.usersMapMtx.Unlock()
+	
 	var res []string
 	for user, _ := range r.usersMap {
 		res = append(res, user)
