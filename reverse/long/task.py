@@ -1,4 +1,4 @@
-flag=[DATA_EXPUNGED]
+flag="REDACTED"
 
 arr=list(map(ord, flag))
 arr[0]-=1
@@ -2894,3 +2894,5 @@ arr[34]-=1
 
 for i in arr:
     print(chr(i),end='')
+
+# output: You_shall_not_pass_lolololololololo
