@@ -2,7 +2,7 @@ from requests import get
 import json
 
 
-common_words = ["the", "of", "and", "to", "in", "a", "is", "that"]
+common_words = ["the"]
 def score(text):
 	tx = text.lower()
 	sc = 0
@@ -12,8 +12,20 @@ def score(text):
 	return sc
 
 
+def score(text):
+	tx = text.lower()
+	sc = 0
+
+	for a, b in zip(tx, tx[1:]):
+		if a + b in ["th", "he", "in", "er", "an", "re", "on", "at"]:
+			sc += 1
+		# if a + b in ["th", "he", "in"]:
+		# 	sc += 1
+	return sc
+
+
 import random
-flag = open("shu.txt", 'r').read()
+flag = open("out.txt", 'r').read()
 
 max = [{"ans": "", "score": 0} for _ in range(50)]
 def max_add(ans, score):
